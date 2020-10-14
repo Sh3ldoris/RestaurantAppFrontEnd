@@ -1,0 +1,10 @@
+.top-bar {
+  background-color: #ed6a03;
+  min-height: 51px;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    min-height: 15vh;
+  }
+}
