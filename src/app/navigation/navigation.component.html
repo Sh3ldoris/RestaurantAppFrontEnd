@@ -6,8 +6,8 @@
   </div>
 </div>
 
-<nav class="navbar navbar-expand-lg">
-<div class="container-xl mt-3">
+<nav class="navbar navbar-expand-lg m-0 p-0">
+<div class="container-sm mt-0">
     <div class="col-md-12 col-lg-3 logo-section">
       <a href="#" class="logo">
         <img class="my-2" src="assets/logo_big.png">
@@ -25,10 +25,10 @@
 
     <div class="col-md-12 col-lg-9  nav-section">
       <div class="top-menu rgt-float" [ngClass]="{' open': navbarOpen}">
-        <a routerLinkActive="active" [routerLink]="'/about'">O nás</a>
-        <a routerLinkActive="active" [routerLink]="'/menu'">Denné menu</a>
-        <a routerLinkActive="active" [routerLink]="'/catering'">Catering</a>
-        <a routerLinkActive="active" [routerLink]="'/contact'">Kontakt</a>
+        <a routerLinkActive="active" [routerLink]="'/about'" (click)="toggleNavbar()">O nás</a>
+        <a routerLinkActive="active" [routerLink]="'/menu'" (click)="toggleNavbar()">Denné menu</a>
+        <a routerLinkActive="active" [routerLink]="'/catering'" (click)="toggleNavbar()">Catering</a>
+        <a routerLinkActive="active" [routerLink]="'/contact'" (click)="toggleNavbar()">Kontakt</a>
       </div>
     </div>
   </div>
