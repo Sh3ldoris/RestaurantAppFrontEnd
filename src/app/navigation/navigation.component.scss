@@ -1,10 +1,118 @@
+.container-sm {
+}
+
 .top-bar {
-  background-color: #ed6a03;
-  min-height: 51px;
+  background-color: var(--main-color);
+  min-height: 60px;
+}
+
+.rgt-float {
+  float: right;
+}
+
+.top-menu {
+  width: auto;
+  overflow: hidden;
+}
+
+.top-menu {
+   a {
+     display: inline-block;
+     padding: 40px 25px;
+     text-align: center;
+
+     font-weight: 700;
+     font-size: 21px;
+     letter-spacing: 1.3px;
+     text-transform: uppercase;
+     text-decoration: none;
+
+     color: #4d4d4c;
+     border-bottom: 4px solid transparent;
+   }
+
+   .active {
+     border-bottom: 4px solid var(--main-color);
+     color: #135359;
+   }
+
+   a:hover {
+     color: var(--main-color);
+     text-decoration: none;
+   }
+ }
+
+.logo-section {
+  .logo-small {
+    display: none;
+  }
+  .icon {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .top-menu {
+    width: 100%;
+    padding: 0% 15%;
+
+    position: center;
+    max-height: 0;
+    transition: all .3s;
+
+    a {
+      display: block;
+      padding: 10px;
+    }
+  }
+
+  .top-menu.open {
+    max-height: 70vh;
+  }
+
+  .nav-section {
+    margin-top: 7px;
+  }
+
+  .logo-section {
+    .icon {
+      padding: 15px 20px;
+      display: inline-block;
+      float: right;
+      font-size: 35px;
+    }
+
+    .icon.closed {
+        display: none;
+    }
+
+    .fa {
+      color: var(--main-color);
+    }
+
+    .icon:hover {
+      cursor: pointer;
+    }
+
+  }
 }
 
 @media (max-width: 768px) {
-  .top-bar {
-    min-height: 15vh;
+  .logo-section {
+
+    .logo-small {
+      display: inline-block;
+    }
+    .logo {
+      display: none;
+    }
   }
+
+  .top-bar {
+    min-height: 10vh;
+  }
+
 }
+
+
+

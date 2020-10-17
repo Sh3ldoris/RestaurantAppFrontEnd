@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
+
+  navbarOpen = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 
 }

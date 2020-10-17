@@ -7,28 +7,31 @@
 </div>
 
 <nav class="navbar navbar-expand-lg">
-  <div class="row">
-
-    <div class="col-md-3 col-sm-3 logo-section">
-      OBRAZOK
+<div class="container-xl mt-3">
+    <div class="col-md-12 col-lg-3 logo-section">
+      <a href="#" class="logo">
+        <img class="my-2" src="assets/logo_big.png">
+      </a>
+      <a href="#" class="logo-small">
+        <img src="assets/logo_big.png">
+      </a>
+      <a class="icon" (click)="toggleNavbar()" [ngClass]="{' closed': navbarOpen}">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a class="icon" (click)="toggleNavbar()" [ngClass]="{' closed': !navbarOpen}">
+        <i class="fa fa-times"></i>
+      </a>
     </div>
 
-    <div class="col-md-9 col-sm-9 nav-section">
-      <div class="container">
-          <div class="navbar-collapse">
-              <div class="top-menu rgt-float open">
-                  <!--<a href="#" class="icon">
-                      <i class="fa fa-bars"></i>
-                  </a>-->
-                  <a class="active" href="#Main.html">O nás</a>
-                  <a href="#">Denné menu</a>
-                  <a href="#">Catering</a>
-                  <a href="#">kontakt</a>
-              </div>
-          </div>
+    <div class="col-md-12 col-lg-9  nav-section">
+      <div class="top-menu rgt-float" [ngClass]="{' open': navbarOpen}">
+        <a routerLinkActive="active" [routerLink]="'/about'">O nás</a>
+        <a routerLinkActive="active" [routerLink]="'/menu'">Denné menu</a>
+        <a routerLinkActive="active" [routerLink]="'/catering'">Catering</a>
+        <a routerLinkActive="active" [routerLink]="'/contact'">Kontakt</a>
       </div>
     </div>
-
   </div>
+
 </nav>
 
