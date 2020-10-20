@@ -1,1 +1,80 @@
 <app-navigation></app-navigation>
+
+<section class="page-name">
+  <div class="container d-flex justify-content-center">
+    <h2>Denné menu</h2>
+  </div>
+</section>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 offset-1 col-sm-12 offset-sm-0 menu text-center">
+
+      <h2 class="menu-title mb-0 pb-0">
+        Obedové menu
+      </h2>
+      <h2 class="menu-date mb-3">
+        {{getMenu().date.getDate()}}.{{getMenu().date.getMonth()}}.{{getMenu().date.getFullYear()}}
+      </h2>
+
+      <div class="soup-section py-3">
+        <div class="soup"  *ngFor="let soup of getMenu().soups; index as i">
+
+          <h2 *ngIf="getMenu().soups.length == 1;else numbered">
+            Polievka
+          </h2>
+          <ng-template #numbered>
+            <h2>Polieka {{i + 1}}</h2>
+          </ng-template>
+
+          <h3>
+            {{soup}}
+          </h3>
+        </div>
+      </div>
+
+      <div class="main-section py-3">
+        <div class="main" *ngFor="let meal of getMenu().main; index as i">
+          <h2>
+            Hlavné jedlo {{i + 1}}
+          </h2>
+          <h3>
+            {{meal}}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10 offset-1 col-sm-12 offset-sm-0 hours text-center">
+    <h2>Otváracie hodiny:</h2>
+    <h3>pracovné dni: 11:00 - 21:00</h3>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10 offset-1 col-sm-12 offset-sm-0 text text-justify mt-1">
+      <p>
+        Denne, počas pracovného týždňa, pre Vás s nadšením pripravujeme chutné obedové meníčka.
+        Sme veľmi šťastní, že naše skvelé jedlo si vychutnávate v príjemnej atmosfére našej malej reštaurácie Hauky mňauky v centre Predajnej.
+        Hlavným základom našich jedál sú kvalitné, sezónne a hlavne čerstvé potraviny, ktoré spracuvávame s láskou a nadšením.
+        Tieto suroviny sú odoberané z prevažne lokálnych pestovateľov a chovateľou, čím podporujeme lokálny rozvoj hospodárstva.
+        Váš obed je pripravoaný zo zdravých surovím, ktoré sú súčasťou našej slovenskej kuchyne.
+        Naše menu taktiež rozvážame po okolí, pre tých ktorí sa nestíhajú u nás zastaviť.
+        U nás je jemnosť, chuť a profesionalita na prvom mieste.
+        Výsledko toho ste Vy a mnoho dalších spokojných zákazníkov.
+      </p>
+    </div>
+  </div>
+
+  <div class="row justify-content-around py-5">
+    <div class="col-10 col-sm-12 col-lg-6 mb-4 mb-lg-0 i1">
+      <img class="img-fluid d-block mx-auto img1" src="../../../assets/menu3.jpg">
+    </div>
+    <div class="col-10 col-sm-12 col-lg-6 i2">
+      <img src="../../../assets/menu4.jpg" class="img-fluid d-block mx-auto img2" >
+    </div>
+  </div>
+
+</div>
