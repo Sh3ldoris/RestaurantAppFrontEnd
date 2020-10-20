@@ -98,11 +98,21 @@
 @media (max-width: 768px) {
   .logo-section {
 
+    .icon {
+      font-size: 30px;
+    }
+
     .logo-small {
       display: inline-block;
     }
     .logo {
       display: none;
+    }
+  }
+
+  .top-menu {
+    a {
+      font-size: 20px;
     }
   }
 
