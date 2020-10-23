@@ -45,13 +45,6 @@
   }
 }
 
-.text p{
-  font-family: 'Arial';
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.9px;
-}
-
 .hours {
   padding: 60px 0px;
   h2 {
@@ -91,12 +84,6 @@
       font-size: 37px;
     }
   }
-
-  .text p {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0.8px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -120,14 +107,7 @@
       letter-spacing: 1px;
       line-height: 1.14;
       font-weight: 400;
-      font-size: 38px;
+      font-size: 37px;
     }
   }
-
-  .text p {
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 0.7px;
-  }
-
 }
