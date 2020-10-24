@@ -2,6 +2,23 @@
 .top-bar {
   background-color: var(--main-color);
   min-height: 60px;
+
+  .container {
+    min-height: 60px;
+  }
+
+  .chef-login {
+    margin-right: 30px;
+    i {
+      color: white;
+      font-size: 30px;
+      padding: 15px 10px;
+    }
+    i:hover {
+      background-color: #f6be4c;
+    }
+  }
+
 }
 
 .rgt-float {
