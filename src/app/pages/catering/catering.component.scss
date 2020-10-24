@@ -5,4 +5,16 @@ strong {
 .info-box {
   font-size: 14px;
   line-height: 1.5;
+
+  a {
+    color: #ffb300;
+    font-weight: 400;
+  }
 }
+
+@media (max-width: 768px) {
+  .info-box {
+    font-size: 13px;
+  }
+}
+

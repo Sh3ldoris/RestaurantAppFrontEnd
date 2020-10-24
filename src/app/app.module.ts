@@ -9,6 +9,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { CateringComponent } from './pages/catering/catering.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { CateringComponent } from './pages/catering/catering.component';
     AboutComponent,
     ContactComponent,
     FooterComponent,
-    CateringComponent
+    CateringComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
