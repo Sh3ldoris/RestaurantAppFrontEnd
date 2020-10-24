@@ -1,0 +1,23 @@
+
+.strong {
+  font-weight: bold;
+}
+
+table {
+  font-size: 15px;
+  letter-spacing: 1px;
+  thead {
+    background-color: #ffb300;
+  }
+}
+
+.text-section {
+  padding-bottom: 60px;
+}
+
+
+@media (max-width: 768px) {
+  .text-section{
+    padding-bottom: 0;
+  }
+}
