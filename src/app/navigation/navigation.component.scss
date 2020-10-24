@@ -41,6 +41,9 @@
  }
 
 .logo-section {
+  .logo {
+    padding: 0px 25px;
+  }
   .logo-small {
     display: none;
   }
@@ -49,7 +52,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .top-menu {
     width: 100%;
     padding: 0% 15%;
@@ -73,11 +76,15 @@
   }
 
   .logo-section {
+    .logo {
+      padding: 0px 20px;
+    }
     .icon {
-      padding: 15px 20px;
+      margin: 20px 18px;
+      padding: 2px 2px;
       display: inline-block;
       float: right;
-      font-size: 35px;
+      font-size: 30px;
     }
 
     .icon.closed {
@@ -99,11 +106,14 @@
   .logo-section {
 
     .icon {
+      margin: 20px 18px;
+      padding: 2px 2px;
       font-size: 30px;
     }
 
     .logo-small {
       display: inline-block;
+      padding: 0px 20px;
     }
     .logo {
       display: none;
