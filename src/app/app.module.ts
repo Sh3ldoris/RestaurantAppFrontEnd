@@ -11,7 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CateringComponent } from './pages/catering/catering.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-
+import { MapComponent } from './map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,14 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     ContactComponent,
     FooterComponent,
     CateringComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
