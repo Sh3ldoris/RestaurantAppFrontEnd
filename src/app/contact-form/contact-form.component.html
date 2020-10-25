@@ -1,1 +1,25 @@
-<p>contact-form works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 p-0" alt="card-body" [formGroup]="form">
+
+      <label for="PlotTextArea">Vaše meno (povinné)</label>
+      <input class="form-control  titleInput mb-2" type="text" placeholder="Meno" title="Meno" formControlName="name"
+             [class.is-invalid]="this.form.controls.name?.invalid && this.form.controls.name?.dirty">
+
+      <label for="PlotTextArea">Váš email (povinné)</label>
+      <input class="form-control mb-2" type="email" placeholder="Email" title="Email" formControlName="mail"
+             [class.is-invalid]="this.form.controls.mail?.invalid && this.form.controls.mail?.dirty">
+
+      <label for="PlotTextArea">Predmet</label>
+      <input class="form-control mb-2" type="text" placeholder="Predmet" title="Predmet" formControlName="object">
+
+      <label for="PlotTextArea">Správa (povinné)</label>
+      <textarea class="form-control" id="PlotTextArea" rows="3" placeholder="Správa" title="Správa" formControlName="message"
+                [class.is-invalid]="this.form.controls.message?.invalid && this.form.controls.message?.dirty"></textarea>
+    </div>
+  </div>
+
+  <div class="row justify-content-center ">
+    <button class="send-btn mt-2 mb-4 mb-md-0 text" (click)="submit()" [disabled]="form.invalid" [ngClass]="{' disable': this.form.invalid}">Odošli</button>
+  </div>
+</div>
