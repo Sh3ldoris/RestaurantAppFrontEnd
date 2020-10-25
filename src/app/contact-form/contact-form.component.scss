@@ -1,0 +1,30 @@
+
+label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.send-btn {
+  padding: 8px 25px;
+  border-radius: 10px;
+  border: 3px solid var(--main-color);
+  background-color: white;
+}
+
+.send-btn:hover {
+  outline: none;
+  background-color: #ffed9f;
+  border: 3px solid #ffed9f;
+}
+
+.send-btn:active {
+  transform: translateY(4px);
+}
+
+.send-btn:focus {
+  outline: 0;
+}
+
+.send-btn.disable {
+  border: 3px solid #ffed9f;
+}
