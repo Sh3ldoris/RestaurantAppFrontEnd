@@ -4,7 +4,7 @@
   min-height: 60px;
 
   .container {
-    min-height: 60px;
+    text-align: right;
   }
 
   .chef-login {
@@ -70,6 +70,11 @@
 }
 
 @media (max-width: 991px) {
+  .top-bar {
+    .chef-login{
+      margin-right: 12px;
+    }
+  }
   .top-menu {
     width: 100%;
     padding: 0% 15%;
@@ -120,6 +125,7 @@
 }
 
 @media (max-width: 768px) {
+
   .logo-section {
 
     .icon {
@@ -145,6 +151,10 @@
 
   .top-bar {
     min-height: 10vh;
+    .logo-wrapper {
+      margin-top: 2vh;
+      min-height: 4vh;
+    }
   }
 
 }
