@@ -4,6 +4,7 @@ import {MenuComponent} from './pages/menu/menu.component';
 import {AboutComponent} from './pages/about/about.component';
 import {ContactComponent} from './pages/contact/contact.component';
 import {CateringComponent} from './pages/catering/catering.component';
+import {LoginComponent} from './pages/login/login.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'catering', component: CateringComponent},
+  {path: 'sign-in', component: LoginComponent},
   {path: '', redirectTo: '/menu', pathMatch: 'full'}
 ];
 

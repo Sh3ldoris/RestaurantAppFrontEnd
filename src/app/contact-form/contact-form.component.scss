@@ -21,8 +21,9 @@ label {
   transform: translateY(4px);
 }
 
-.send-btn:focus {
-  outline: 0;
+input:focus, textarea:focus, button:focus {
+  border-color: var(--main-color);
+  box-shadow: none;
 }
 
 .send-btn.disable {
