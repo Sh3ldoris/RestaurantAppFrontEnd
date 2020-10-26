@@ -21,6 +21,10 @@ label {
   transform: translateY(4px);
 }
 
+input:focus {
+  box-shadow: none;
+}
+
 .send-btn:focus {
   outline: 0;
 }

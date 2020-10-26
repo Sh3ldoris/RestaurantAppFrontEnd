@@ -7,9 +7,29 @@
 }
 
 .loginView {
-   background-color: #ffe9bf;
+   background-color: #fffdf1;
+}
+
+input:focus {
+  border-color: var(--main-color);
+  box-shadow: none;
+}
+
+button:focus {
+  box-shadow: none;
 }
 
 .loginForm{
   background-color: white;
+}
+
+.sign-in-btn:active {
+  transform: translateY(3px);
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+.logo:focus {
+  outline: none;
 }

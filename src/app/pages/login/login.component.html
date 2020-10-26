@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center align-items-center min-vh-100 text-center loginView">
 
-  <div class="col-sm-4 col-xl-2 col-sm-offset-4 col-lg-offset-5 mb-5 mx-3 shadow loginForm">
+  <div class="col-8 col-sm-6 col-md-4 col-xl-2 mb-5 mx-3 shadow loginForm">
     <form class="my-3 mx-1" (ngSubmit)="submit()" [formGroup]="form">
-      <img class="mb-2" src="assets/logo.png" alt="" width="72" height="72" [routerLink]="'/'">
+      <img class="mb-2 logo" src="assets/logo.png" alt="" width="72" height="72" [routerLink]="'/'">
       <h1 class="h3 mb-3 font-weight-normal">Prihláste sa</h1>
       <div class="form-group mb-2">
         <input type="text" class="form-control" placeholder="Meno" formControlName="username"
