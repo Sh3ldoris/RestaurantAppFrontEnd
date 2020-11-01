@@ -1,0 +1,42 @@
+.top-bar {
+  background-color: var(--main-color);
+  min-height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+
+  box-shadow: 2px 2px;
+  z-index: 100;
+
+  .container-fluid {
+    padding: 0px 50px;
+  }
+
+  .icon {
+    font-size: 30px;
+    color: #fff;
+  }
+
+  a {
+    padding: 2px 2px;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+}
+
+.side-wrap {
+  float: right;
+  transition: all 0.3s;
+  z-index: 80;
+}
+
+.side-wrap.active {
+  margin-right: 220px;
+}
+
+
+
+

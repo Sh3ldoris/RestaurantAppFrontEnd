@@ -1,0 +1,38 @@
+
+.page-body-holder {
+  margin-top: 60px;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+  margin-left: 220px;
+  width: 100%;
+  min-height: 100vh;
+  transition: all 0.3s;
+
+  .container-fluid {
+    padding: 40px;
+  }
+}
+
+.side-wrap {
+  transition: all 0.3s;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 1100px) {
+
+  .side-wrap {
+    margin-left: -220px;
+  }
+}
