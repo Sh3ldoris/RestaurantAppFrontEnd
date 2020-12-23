@@ -7,15 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuAdminComponent implements OnInit {
 
-  isColapsed = true;
+  navbarOpen = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleSideBar() {
-    this.isColapsed = !this.isColapsed;
-  }
+
 
 }
