@@ -13,8 +13,8 @@ label {
 
 .send-btn:hover {
   outline: none;
-  background-color: #ffed9f;
-  border: 3px solid #ffed9f;
+  background-color: var(--main-color);
+  border: 3px solid var(--main-color);
 }
 
 .send-btn:active {
@@ -28,4 +28,7 @@ input:focus, textarea:focus, button:focus {
 
 .send-btn.disable {
   border: 3px solid #ffed9f;
+}
+.send-btn.disable:hover {
+  background-color: #ffed9f;
 }
