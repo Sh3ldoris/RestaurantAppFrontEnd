@@ -54,14 +54,127 @@ mat-drawer {
 
 #content {
   margin-top: 60px;
-  margin-left: 220px;
+  margin-left: 260px;
   width: 100%;
   transition: all 0.3s;
-  background: white;
+  background: #f3f5f6;
+  min-height: 94vh;
+
+  h3 {
+    font-weight: 200;
+    font-size: 1rem;
+    letter-spacing: 1.05px;
+    margin: 0;
+  }
+
+  h2 {
+    letter-spacing: 1px;
+    line-height: 1.14;
+    font-weight: 400;
+    font-size: 38px;
+    margin: 0;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.14;
+    font-weight: 400;
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .card-body {
+    text-align: center;
+  }
 
   .container-fluid {
     padding: 40px;
   }
+
+  .cards-holder {
+    display: block;
+    padding: 30px 30px 0;
+
+    .card {
+      background: white;
+      position: relative;
+      display: flex;
+      margin-bottom: 30px;
+      border-width: 0px;
+
+      .card-body {
+        padding-bottom: 5px;
+      }
+
+      .info {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin: 5px ;
+      }
+      .content {
+        margin: 18px 0px ;
+      }
+
+    }
+
+    .meals-holder {
+
+      .new-meal {
+        i {
+          color: var(--main-color);
+          font-size: 50px;
+          padding: 0;
+        }
+        i:hover {
+          color: #e2b76b;
+        }
+      }
+
+      .delete-meal {
+        i {
+          color: #f12020;
+          font-size: 20px;
+          padding: 0;
+        }
+        i:hover {
+          color: #e75c5c;
+        }
+      }
+
+      .meal-card {
+        width: 250px;
+        min-height: 230px;
+        margin-bottom: 0;
+        box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+
+        &:hover {
+          transition: all 0.2s ease-out;
+          top: -4px;
+        }
+      }
+
+      h1 {
+        text-transform: none;
+        letter-spacing: 1px;
+        line-height: 1.14;
+        font-weight: 300;
+        font-size: 23px;
+        margin: 0;
+      }
+
+      h2{
+        text-transform: none;
+        letter-spacing: 1px;
+        line-height: 1.14;
+        font-weight: 400;
+        font-size: 35px;
+        margin: 0;
+      }
+    }
+
+  }
+
 }
 
 .side-wrap {
@@ -97,8 +210,17 @@ mat-drawer {
     }
   }
 
+}
+
+@media (max-width: 767.98px) {
+
   #content {
+    .cards-holder {
+      padding: 15px 15px 0;
 
-
+      .card {
+        margin-bottom: 15px;
+      }
+    }
   }
 }

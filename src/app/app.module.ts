@@ -19,7 +19,7 @@ import { MenuAdminComponent } from './pages/admin-section/menu-admin/menu-admin.
 import { AdminSideNavComponent } from './admin-components/admin-side-nav/admin-side-nav.component';
 import { AdminTopNavComponent } from './admin-components/admin-top-nav/admin-top-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
