@@ -67,7 +67,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "restaurant-UI:build"
+            "browserTarget": "restaurant-UI:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

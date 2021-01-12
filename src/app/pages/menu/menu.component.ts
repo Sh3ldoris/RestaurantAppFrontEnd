@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Menu} from '../../model/menu';
+import {MenuService} from '../../Service/menu.service';
+import {Menu} from "../../model/menu";
 
 @Component({
   selector: 'app-menu',
@@ -8,11 +9,18 @@ import {Menu} from '../../model/menu';
 })
 export class MenuComponent {
 
-  private menu: Menu = new Menu();
+  menu: Menu;
+  menuDate: Date = new Date();
+  constructor(private menuService: MenuService) { }
 
-  constructor() { }
-
-  public getMenu(): Menu {
-    return this.menu;
+  ngOnInit() {
+    this.menuService.getCurrentMenu().subscribe(
+      (data: Menu) => {
+            console.log(data)
+            this.menu = data
+            this.menuDate = new Date(this.menu.menuDate)
+      }
+    );
   }
+
 }
