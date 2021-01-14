@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuService} from '../../../Service/menu.service';
 import {Menu} from '../../../model/menu';
+import {MatDialog} from '@angular/material/dialog';
+import {AddMealDialogContentComponent} from '../../../admin-components/add-meal-dialog-content/add-meal-dialog-content.component';
 
 @Component({
   selector: 'app-menu-admin',
@@ -14,7 +16,10 @@ export class MenuAdminComponent implements OnInit {
   menu: Menu;
   menuDate: Date = new Date();
 
-  constructor(private menuService: MenuService) { }
+  constructor(
+    private menuService: MenuService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.menuService.getCurrentMenu().subscribe(
@@ -31,6 +36,9 @@ export class MenuAdminComponent implements OnInit {
     );
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(AddMealDialogContentComponent);
+  }
 
 
 }

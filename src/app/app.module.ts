@@ -19,7 +19,10 @@ import { MenuAdminComponent } from './pages/admin-section/menu-admin/menu-admin.
 import { AdminSideNavComponent } from './admin-components/admin-side-nav/admin-side-nav.component';
 import { AdminTopNavComponent } from './admin-components/admin-top-nav/admin-top-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { AddMealDialogContentComponent } from './admin-components/add-meal-dialog-content/add-meal-dialog-content.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     LoginComponent,
     MenuAdminComponent,
     AdminSideNavComponent,
-    AdminTopNavComponent
+    AdminTopNavComponent,
+    AddMealDialogContentComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     GoogleMapsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
