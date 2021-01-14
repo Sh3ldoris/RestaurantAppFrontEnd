@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 import { AddMealDialogContentComponent } from './admin-components/add-meal-dialog-content/add-meal-dialog-content.component';
 
 @NgModule({
@@ -39,7 +40,7 @@ import { AddMealDialogContentComponent } from './admin-components/add-meal-dialo
     MenuAdminComponent,
     AdminSideNavComponent,
     AdminTopNavComponent,
-    AddMealDialogContentComponent
+      AddMealDialogContentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,8 @@ import { AddMealDialogContentComponent } from './admin-components/add-meal-dialo
     BrowserAnimationsModule,
     MatSidenavModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
