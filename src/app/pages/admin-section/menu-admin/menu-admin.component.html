@@ -27,11 +27,14 @@
             </div>
           </div>
           <span class="border-bottom"></span>
-          <div class="row content">
-            <div class="col-12 col-md-6 p-0 mb-3 mb-md-0 d-flex justify-content-center">
+          <div class="row content" style="min-height: 5vh;">
+            <div class="col-12  d-flex justify-content-center align-items-center" *ngIf="isLoading==true">
+              <app-loading></app-loading>
+            </div>
+            <div class="col-12 col-md-6 p-0 mb-3 mb-md-0 d-flex justify-content-center" *ngIf="isLoading!=true">
               <h1>{{menuDate.getDate()}}.{{menuDate.getMonth() + 1}}.{{menuDate.getFullYear()}}</h1>
             </div>
-            <div class="col-12 col-md-6 p-0 d-flex justify-content-center">
+            <div class="col-12 col-md-6 p-0 d-flex justify-content-center" *ngIf="isLoading!=true">
               <h1>Utorok</h1>
             </div>
           </div>
@@ -44,19 +47,26 @@
             </div>
           </div>
           <span class="border-bottom"></span>
-          <div class="row mb-4 content">
+          <div class="row mb-4 content" *ngIf="isLoading!=true">
             <div class="col-12 p-0 mb-3 mb-md-0 d-flex justify-content-center">
               <h2>Polievky</h2>
             </div>
           </div>
 
-          <div class="row justify-content-center meals-holder mb-4 mx-3">
+
+          <div class="row justify-content-center meals-holder mb-4 mx-3" style="min-height: 60vh;" *ngIf="isLoading==true">
+            <div class="col-12  d-flex justify-content-center align-items-center">
+              <app-loading></app-loading>
+            </div>
+          </div>
+
+          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
             <div class="col-auto mb-3 d-flex align-items-stretch" *ngFor="let soup of menu.soups; index as i">
               <div class="card border meal-card">
                 <div class="card-body d-flex flex-column">
                   <h1 class="meal-title mb-auto">{{soup.name}}</h1>
                   <h2 class="meal-price mt-4 mb-0">{{soup.price | number : '1.2-2'}}€</h2>
-                  <h2 class="meal-price mt-0 mb-0"><a [routerLink]="'/sign-in'" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
+                  <h2 class="meal-price mt-0 mb-0"><a (click)="removeSoup(soup)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
                 </div>
               </div>
             </div>
@@ -65,25 +75,25 @@
               <div class="card border meal-card">
                 <div class="card-body d-flex flex-column">
                   <h1 class="meal-title mt-auto">Pridať novú polievku</h1>
-                  <h2 class="meal-price mb-auto mt-3"><a (click)="openDialog()" class="new-meal"><i class="fa fa-plus-circle"></i></a></h2>
+                  <h2 class="meal-price mb-auto mt-3"><a (click)="openSoupsDialog()" class="new-meal"><i class="fa fa-plus-circle"></i></a></h2>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="row mb-4 content">
+          <div class="row mb-4 content" *ngIf="isLoading!=true">
             <div class="col-12 p-0 mb-3 mb-md-0 d-flex justify-content-center">
               <h2>Hlavné jedlá</h2>
             </div>
           </div>
 
-          <div class="row justify-content-center meals-holder mb-4 mx-3">
+          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
             <div class="col-auto mb-3 d-flex align-items-stretch" *ngFor="let meal of menu.mainMeals; index as i">
               <div class="card border meal-card">
                 <div class="card-body d-flex flex-column">
                   <h1 class="meal-title mb-auto">{{meal.name}}</h1>
                   <h2 class="meal-price mt-4 mb-0">{{meal.price | number : '1.2-2'}}€</h2>
-                  <h2 class="meal-price mt-0 mb-0"><a [routerLink]="'/sign-in'" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
+                  <h2 class="meal-price mt-0 mb-0"><a (click)="removeMainMeal(meal)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
                 </div>
               </div>
             </div>
@@ -92,12 +102,11 @@
               <div class="card border meal-card">
                 <div class="card-body d-flex flex-column">
                   <h1 class="meal-title mt-auto">Pridať nové hlavné jedlo</h1>
-                  <h2 class="meal-price mb-auto mt-3"><a [routerLink]="'/sign-in'" class="new-meal"><i class="fa fa-plus-circle"></i></a></h2>
+                  <h2 class="meal-price mb-auto mt-3"><a (click)="openMainMealsDialog()" class="new-meal"><i class="fa fa-plus-circle"></i></a></h2>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 

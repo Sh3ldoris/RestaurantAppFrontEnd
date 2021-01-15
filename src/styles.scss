@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $restaurant-UI-primary: mat-palette($mat-indigo);
-$restaurant-UI-accent: mat-palette($mat-pink, A200, A100, A400);
+$restaurant-UI-accent: mat-palette($mat-amber, 600);
 
 // The warn palette is optional (defaults to red).
 $restaurant-UI-warn: mat-palette($mat-red);
@@ -34,6 +34,7 @@ $restaurant-UI-theme: mat-light-theme((
 @include angular-material-theme($restaurant-UI-theme);
 
  /* You can add global styles to this file, and also import other style files */
+
 
 :root {
   --main-color: #ffb300;

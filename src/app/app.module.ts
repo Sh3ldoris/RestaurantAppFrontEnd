@@ -23,7 +23,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-import { AddMealDialogContentComponent } from './admin-components/add-meal-dialog-content/add-meal-dialog-content.component';
+import { MatGridListModule  } from '@angular/material/grid-list';
+import { AddSoupsDialogContentComponent } from './admin-components/add-soups-dialog-content/add-soups-dialog-content.component';
+import { LoadingComponent } from './loading/loading.component';
+import { AddMainMealsDialogComponent } from './admin-components/add-main-meals-dialog/add-main-meals-dialog.component';
+import { SoupsListComponent } from './pages/admin-section/soups-list/soups-list.component';
+import { MainMealsListComponent } from './pages/admin-section/main-meals-list/main-meals-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,11 @@ import { AddMealDialogContentComponent } from './admin-components/add-meal-dialo
     MenuAdminComponent,
     AdminSideNavComponent,
     AdminTopNavComponent,
-      AddMealDialogContentComponent
+      AddSoupsDialogContentComponent,
+      LoadingComponent,
+      AddMainMealsDialogComponent,
+      SoupsListComponent,
+      MainMealsListComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,8 @@ import { AddMealDialogContentComponent } from './admin-components/add-meal-dialo
     MatSidenavModule,
     MatDialogModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

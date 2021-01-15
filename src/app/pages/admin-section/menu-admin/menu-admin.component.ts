@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {MenuService} from '../../../Service/menu.service';
 import {Menu} from '../../../model/menu';
 import {MatDialog} from '@angular/material/dialog';
-import {AddMealDialogContentComponent} from '../../../admin-components/add-meal-dialog-content/add-meal-dialog-content.component';
+import {AddSoupsDialogContentComponent} from '../../../admin-components/add-soups-dialog-content/add-soups-dialog-content.component';
+import {Soup} from '../../../model/soup';
+import {MainMeal} from '../../../model/main-meal';
+import {AddMainMealsDialogComponent} from "../../../admin-components/add-main-meals-dialog/add-main-meals-dialog.component";
 
 @Component({
   selector: 'app-menu-admin',
@@ -22,6 +25,10 @@ export class MenuAdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.menuService.getCurrentMenu().subscribe(
       (data: Menu) => {
         this.menu = data;
@@ -32,13 +39,59 @@ export class MenuAdminComponent implements OnInit {
       error => {
         console.error(error);
         this.isLoading = false;
+      });
+  }
+
+  openSoupsDialog() {
+    const dialogRef = this.dialog.open(AddSoupsDialogContentComponent);
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result === true) {
+          this.isLoading = true;
+          this.loadData();
+        }
       }
     );
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AddMealDialogContentComponent);
+  openMainMealsDialog() {
+    const dialogRef = this.dialog.open(AddMainMealsDialogComponent);
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result === true) {
+          this.isLoading = true;
+          this.loadData();
+        }
+      }
+    );
   }
 
+  removeSoup(soup: Soup) {
+    this.isLoading = true;
+    const index = this.menu.soups.indexOf(soup, 0);
+    if (index > -1) {
+      this.menu.soups.splice(index, 1);
+    }
+    this.menuService.saveMenu(this.menu).subscribe(
+      data => {
+        console.log(data);
+        this.loadData();
+      }
+    );
+  }
+
+  removeMainMeal(meal: MainMeal) {
+    this.isLoading = true;
+    const index = this.menu.mainMeals.indexOf(meal, 0);
+    if (index > -1) {
+      this.menu.mainMeals.splice(index, 1);
+    }
+    this.menuService.saveMenu(this.menu).subscribe(
+      data => {
+        console.log(data);
+        this.loadData();
+      }
+    );
+  }
 
 }

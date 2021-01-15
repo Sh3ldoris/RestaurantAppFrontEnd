@@ -1,0 +1,31 @@
+<div class="top-bar shadow d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end ">
+        <a class="icon" (click)="responsiveSideMenu.toggle()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-body-holder">
+  <div class="side-wrap">
+    <app-admin-side-nav></app-admin-side-nav>
+  </div>
+
+  <mat-drawer-container id="content" [hasBackdrop]="true">
+    <mat-drawer-content>
+
+    </mat-drawer-content>
+
+    <mat-drawer #responsiveSideMenu class="responsive" mode="over" opened="false" position="end">
+      <app-admin-side-nav></app-admin-side-nav>
+    </mat-drawer>
+  </mat-drawer-container>
+
+
+</div>
+
+

@@ -1,0 +1,58 @@
+<div class="top-bar shadow d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end ">
+        <a class="icon" (click)="responsiveSideMenu.toggle()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-body-holder">
+  <div class="side-wrap">
+    <app-admin-side-nav></app-admin-side-nav>
+  </div>
+
+  <mat-drawer-container id="content" [hasBackdrop]="true">
+    <mat-drawer-content>
+      <div class="cards-holder mt-3">
+
+        <div class="container shadow rounded bg-white card">
+          <div class="row info">
+            <div class="col-6 p-0">
+              <h3>Zloženie menu</h3>
+            </div>
+          </div>
+          <span class="border-bottom mb-5"></span>
+
+          <div class="row" style="min-height: 60vh;" *ngIf="isLoading==true">
+            <div class="col-12  d-flex justify-content-center align-items-center">
+              <app-loading></app-loading>
+            </div>
+          </div>
+
+          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
+            <div class="col-12 mb-3 d-flex align-items-stretch border meal-card rounded" *ngFor="let soup of soups; index as i">
+                <div class="card-body d-flex flex-column">
+                  <h1 class="meal-title mb-auto">{{soup.name}}</h1>
+                  <h2 class="meal-price mt-4 mb-0">{{soup.price | number : '1.2-2'}}€</h2>
+               <!--   <h2 class="meal-price mt-0 mb-0"><a (click)="removeSoup(soup)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>-->
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </mat-drawer-content>
+
+    <mat-drawer #responsiveSideMenu class="responsive" mode="over" opened="false" position="end">
+      <app-admin-side-nav></app-admin-side-nav>
+    </mat-drawer>
+  </mat-drawer-container>
+
+
+</div>
+
+
