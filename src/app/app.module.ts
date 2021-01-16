@@ -29,6 +29,10 @@ import { LoadingComponent } from './loading/loading.component';
 import { AddMainMealsDialogComponent } from './admin-components/add-main-meals-dialog/add-main-meals-dialog.component';
 import { SoupsListComponent } from './pages/admin-section/soups-list/soups-list.component';
 import { MainMealsListComponent } from './pages/admin-section/main-meals-list/main-meals-list.component';
+import { UpdateSoupDialogComponent } from './admin-components/update-soup-dialog/update-soup-dialog.component';
+import { NewSoupDialogComponent } from './admin-components/new-soup-dialog/new-soup-dialog.component';
+import { NewMainMealDialogComponent } from './admin-components/new-main-meal-dialog/new-main-meal-dialog.component';
+import { UpdateMainMealDialogComponent } from './admin-components/update-main-meal-dialog/update-main-meal-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { MainMealsListComponent } from './pages/admin-section/main-meals-list/ma
       LoadingComponent,
       AddMainMealsDialogComponent,
       SoupsListComponent,
-      MainMealsListComponent
+      MainMealsListComponent,
+      UpdateSoupDialogComponent,
+      NewSoupDialogComponent,
+      NewMainMealDialogComponent,
+      UpdateMainMealDialogComponent
   ],
   imports: [
     BrowserModule,

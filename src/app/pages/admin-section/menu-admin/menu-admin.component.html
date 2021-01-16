@@ -5,6 +5,7 @@
         <a class="icon" (click)="responsiveSideMenu.toggle()">
           <i class="fa fa-bars"></i>
         </a>
+        <app-admin-top-nav></app-admin-top-nav>
       </div>
     </div>
   </div>
@@ -35,7 +36,7 @@
               <h1>{{menuDate.getDate()}}.{{menuDate.getMonth() + 1}}.{{menuDate.getFullYear()}}</h1>
             </div>
             <div class="col-12 col-md-6 p-0 d-flex justify-content-center" *ngIf="isLoading!=true">
-              <h1>Utorok</h1>
+              <h1>{{getNameOfADat()}}</h1>
             </div>
           </div>
         </div>

@@ -1,29 +1,25 @@
-.top-bar {
-  background-color: var(--main-color);
-  min-height: 60px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  overflow: hidden;
+.signout {
+  background-color: #fff;;
+  color: #4d4d4c;
+  font-weight: 400;
+  margin: 10px;
+}
 
-  box-shadow: 2px 2px;
-  z-index: 100;
+.signout:hover {
+  background-color: #eaeaea;
+}
 
-  .container-fluid {
-    padding: 0px 50px;
-  }
+.signout:focus {
+  box-shadow: none;
+}
 
-  .icon {
-    font-size: 30px;
-    color: #fff;
-  }
+.signout:active {
+  transform: translateY(3px);
+}
 
-  a {
-    padding: 2px 2px;
-  }
-
-  a:hover {
-    cursor: pointer;
+@media (max-width: 1100px) {
+  .signout {
+    display: none;
   }
 }
 

@@ -18,7 +18,7 @@ export class MenuAdminComponent implements OnInit {
   isLoading = true;
   menu: Menu;
   menuDate: Date = new Date();
-
+  days = ['Nedeľa', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota'];
   constructor(
     private menuService: MenuService,
     public dialog: MatDialog
@@ -50,8 +50,7 @@ export class MenuAdminComponent implements OnInit {
           this.isLoading = true;
           this.loadData();
         }
-      }
-    );
+      });
   }
 
   openMainMealsDialog() {
@@ -92,6 +91,10 @@ export class MenuAdminComponent implements OnInit {
         this.loadData();
       }
     );
+  }
+
+  getNameOfADat(): string {
+    return this.days[this.menuDate.getDay()];
   }
 
 }

@@ -1,0 +1,39 @@
+.cancel {
+  background-color: #7b7c83;
+}
+
+.save {
+  background-color: #f8c02e;;
+  color: white;
+}
+
+.cancel:hover {
+  background-color: #6c757d;
+}
+
+.save:hover {
+  background-color: var(--main-color);
+}
+
+button:focus {
+  box-shadow: none;
+}
+
+.modal-btn {
+  font-weight: 400;
+  margin: 10px;
+}
+
+.modal-btn:active {
+  transform: translateY(3px);
+}
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+input:focus, textarea:focus, button:focus {
+  border-color: var(--main-color);
+  box-shadow: none;
+}

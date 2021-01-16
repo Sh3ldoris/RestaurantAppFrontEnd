@@ -5,6 +5,7 @@
         <a class="icon" (click)="responsiveSideMenu.toggle()">
           <i class="fa fa-bars"></i>
         </a>
+        <app-admin-top-nav></app-admin-top-nav>
       </div>
     </div>
   </div>
@@ -21,8 +22,11 @@
 
         <div class="container shadow rounded bg-white card">
           <div class="row info">
-            <div class="col-6 p-0">
-              <h3>Zloženie menu</h3>
+            <div class="col-11 p-0">
+              <h3>Zoznam polievok</h3>
+            </div>
+            <div class="col-1 p-0 d-flex justify-content-center align-items-center">
+             <a class="new-meal" (click)="openNewSoupDialog()"><i class="fa fa-plus-circle p-0"></i></a>
             </div>
           </div>
           <span class="border-bottom mb-5"></span>
@@ -35,10 +39,23 @@
 
           <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
             <div class="col-12 mb-3 d-flex align-items-stretch border meal-card rounded" *ngFor="let soup of soups; index as i">
-                <div class="card-body d-flex flex-column">
-                  <h1 class="meal-title mb-auto">{{soup.name}}</h1>
-                  <h2 class="meal-price mt-4 mb-0">{{soup.price | number : '1.2-2'}}€</h2>
-               <!--   <h2 class="meal-price mt-0 mb-0"><a (click)="removeSoup(soup)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>-->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 col-md-10 pt-3">
+                      <div class="row">
+                        <h1 class="meal-title mb-auto">{{soup.name}}</h1>
+                      </div>
+                      <div class="row">
+                        <h3 class="meal-price mt-4 mb-0" style="font-weight: 500">{{soup.price | number : '1.2-2'}}€</h3>
+                      </div>
+                    </div>
+                    <div class="col-2 offset-8 offset-md-0 col-md-1 d-flex align-items-center justify-content-center">
+                      <h2 class="meal-price mt-0 mb-0"><a (click)="openUpdateDialog(soup)" class="new-meal"><i class="fa fa-pencil"></i></a></h2>
+                    </div>
+                    <div class="col-2 col-md-1 d-flex align-items-center justify-content-center">
+                      <h2 class="meal-price mt-0 mb-0"><a (click)="removeSoup(soup)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
+                    </div>
+                  </div>
                 </div>
             </div>
           </div>

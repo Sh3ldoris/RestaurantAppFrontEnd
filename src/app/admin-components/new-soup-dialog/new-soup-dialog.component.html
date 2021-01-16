@@ -1,0 +1,30 @@
+<div class="container-fluid " style="min-width: 30vw;">
+  <div class="row">
+    <div class="col-12 p-0">
+      <h1>Nová polievka</h1>
+    </div>
+    <div class="col-12 p-0">
+      <p>Vyplňte údaje o jedle a vytvorenie potvrdte tlačidlom Uložiť</p>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 p-0" alt="card-body" [formGroup]="form">
+
+      <label for="Name">Názov polievky (povinné)</label>
+      <input id="Name" class="form-control  titleInput mb-2" type="text" placeholder="Meno" title="Meno" formControlName="name"
+             [class.is-invalid]="this.form.controls.name?.invalid && this.form.controls.name?.dirty">
+
+      <label for="Price" class="mt-2">Cena polievky (povinné)</label>
+      <input id="Price" class="form-control mb-2" type="number" placeholder="Cena" title="Cena" formControlName="price"
+             [class.is-invalid]="this.form.controls.price?.invalid && this.form.controls.price?.dirty">
+      <hr>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <button class="btn modal-btn save" [mat-dialog-close]="true" (click)="submit()" [disabled]="form.invalid" [ngClass]="{' disable': this.form.invalid}">Uložiť</button>
+    <button class="mr-3 btn modal-btn cancel btn-secondary " [mat-dialog-close]="false">Zrušiť</button>
+  </div>
+</div>

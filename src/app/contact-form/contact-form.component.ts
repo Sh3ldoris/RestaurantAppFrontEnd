@@ -9,9 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ContactFormComponent implements OnInit {
 
   form: FormGroup;
-  constructor(
-    private fb: FormBuilder
-  ) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({

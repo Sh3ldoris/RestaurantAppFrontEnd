@@ -84,6 +84,18 @@ mat-drawer {
     margin: 0;
   }
 
+  .new-meal {
+    i {
+      color: var(--main-color);
+      font-size: 25px;
+      padding: 0;
+    }
+    i:hover {
+      color: #e2b76b;
+      cursor: pointer;
+    }
+  }
+
   .card-body {
     text-align: center;
   }
@@ -105,7 +117,7 @@ mat-drawer {
       border-width: 0px;
 
       .card-body {
-        padding-top: 25px;
+        padding-top: 5px;
         padding-bottom: 5px;
       }
 
@@ -125,11 +137,12 @@ mat-drawer {
       .new-meal {
         i {
           color: var(--main-color);
-          font-size: 50px;
+          font-size: 20px;
           padding: 0;
         }
         i:hover {
           color: #e2b76b;
+          cursor: pointer;
         }
       }
 
@@ -141,6 +154,7 @@ mat-drawer {
         }
         i:hover {
           color: #e75c5c;
+          cursor: pointer;
         }
       }
 
@@ -156,10 +170,11 @@ mat-drawer {
 
       h1 {
         text-transform: none;
+        text-align: left;
         letter-spacing: 1px;
         line-height: 1.14;
         font-weight: 300;
-        font-size: 23px;
+        font-size: 20px;
         margin: 0;
       }
 
