@@ -18,26 +18,26 @@ export class MealsService {
   constructor(private httpService: HttpClient) { }
 
   public getAllMainMeals() {
-    return this.httpService.get<MainMeal[]>('/secured/getAllMainMeals');
+    return this.httpService.get<MainMeal[]>('api/secured/getAllMainMeals');
   }
 
   public getAllSoups() {
-    return this.httpService.get<Soup[]>('/secured/getAllSoups');
+    return this.httpService.get<Soup[]>('api/secured/getAllSoups');
   }
 
   public deleteSoup(id: number) {
-    return this.httpService.delete('/secured/deleteSoup/' + id, this.httpOptions);
+    return this.httpService.delete('api/secured/deleteSoup/' + id, this.httpOptions);
   }
 
   public saveSoup(soup: Soup) {
-    return this.httpService.post('/secured/saveSoup', soup, this.httpOptions);
+    return this.httpService.post('api/secured/saveSoup', soup, this.httpOptions);
   }
 
   public deleteMainMeal(id: number) {
-    return this.httpService.delete('/secured/deleteMainMeal/' + id, this.httpOptions);
+    return this.httpService.delete('api/secured/deleteMainMeal/' + id, this.httpOptions);
   }
 
   public saveMainMeal(meal: MainMeal) {
-    return this.httpService.post('/secured/saveMainMeal', meal, this.httpOptions);
+    return this.httpService.post('api/secured/saveMainMeal', meal, this.httpOptions);
   }
 }

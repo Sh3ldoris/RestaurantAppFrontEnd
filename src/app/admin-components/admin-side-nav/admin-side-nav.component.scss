@@ -8,6 +8,10 @@ a:focus {
   outline: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 .sidebar {
   height: 100%;
   overflow: hidden;
@@ -54,8 +58,25 @@ a:focus {
   background: #f3a900;
 }
 
+hr {
+  display: none;
+}
+
+.collapsed {
+  display: none;
+}
+
 @media (max-width: 1100px) {
   .sidebar {
     border-right: 0px;
+
+    hr {
+      display: block;
+    }
+
+    .collapsed {
+      display: inline;
+    }
+
   }
 }

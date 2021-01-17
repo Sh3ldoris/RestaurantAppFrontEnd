@@ -19,10 +19,10 @@ export class MenuService {
   constructor(private httpService: HttpClient) { }
 
   public getCurrentMenu() {
-      return this.httpService.get<Menu>('/public/getCurrentMenu');
+      return this.httpService.get<Menu>('api/public/getCurrentMenu');
   }
 
   public saveMenu(menu: Menu) {
-      return this.httpService.post<Menu>('/secured/saveMenu', menu, this.httpOptions);
+      return this.httpService.post<Menu>('api/secured/saveMenu', menu, this.httpOptions);
   }
 }
