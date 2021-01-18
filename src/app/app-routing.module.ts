@@ -8,6 +8,8 @@ import {LoginComponent} from './pages/login/login.component';
 import {MenuAdminComponent} from './pages/admin-section/menu-admin/menu-admin.component';
 import {SoupsListComponent} from './pages/admin-section/soups-list/soups-list.component';
 import {MainMealsListComponent} from './pages/admin-section/main-meals-list/main-meals-list.component';
+import {AuthGuard} from './auth/auth.guard';
+import {AuthLoginhGuard} from './auth/auth-loginh.guard';
 
 
 const routes: Routes = [
@@ -16,9 +18,9 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'catering', component: CateringComponent},
   {path: 'sign-in', component: LoginComponent},
-  {path: 'admin/menu', component: MenuAdminComponent},
-  {path: 'admin/soups', component: SoupsListComponent},
-  {path: 'admin/main-meals', component: MainMealsListComponent},
+  {path: 'admin/menu', component: MenuAdminComponent, canActivate: [AuthGuard]},
+  {path: 'admin/soups', component: SoupsListComponent, canActivate: [AuthGuard]},
+  {path: 'admin/main-meals', component: MainMealsListComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/menu', pathMatch: 'full'}
 ];
 

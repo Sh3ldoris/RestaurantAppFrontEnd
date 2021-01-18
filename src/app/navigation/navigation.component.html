@@ -2,7 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-12 logo-wrapper">
-        <a [routerLink]="'/sign-in'" class="chef-login"><i class="fa fa-user"></i></a>
+        <a *ngIf="!authservice.isUserLoggedIn()" [routerLink]="'/sign-in'" class="chef-login"><i class="fa fa-user"></i></a>
+        <a *ngIf="authservice.isUserLoggedIn()" [routerLink]="'/admin/menu'" class="chef-login"><i class="fa fa-user"></i></a>
       </div>
     </div>
   </div>

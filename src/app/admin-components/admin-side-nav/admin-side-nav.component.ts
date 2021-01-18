@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenService} from '../../Service/token.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-side-nav',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminSideNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenService: TokenService,
+              private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  signout() {
+    this.tokenService.signOut();
+    this.router.navigate(['/']);
   }
 
 }

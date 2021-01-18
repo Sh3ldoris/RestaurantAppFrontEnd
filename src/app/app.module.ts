@@ -9,7 +9,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { CateringComponent } from './pages/catering/catering.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { MapComponent } from './map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -33,6 +33,10 @@ import { UpdateSoupDialogComponent } from './admin-components/update-soup-dialog
 import { NewSoupDialogComponent } from './admin-components/new-soup-dialog/new-soup-dialog.component';
 import { NewMainMealDialogComponent } from './admin-components/new-main-meal-dialog/new-main-meal-dialog.component';
 import { UpdateMainMealDialogComponent } from './admin-components/update-main-meal-dialog/update-main-meal-dialog.component';
+import {AuthInterceptor} from './Service/auth.interceptor';
+import {CookieService} from 'ngx-cookie-service';
+import {AuthGuard} from './auth/auth.guard';
+import {AuthService} from './Service/auth.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +76,7 @@ import { UpdateMainMealDialogComponent } from './admin-components/update-main-me
     MatSelectModule,
     MatGridListModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, AuthService, AuthGuard, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

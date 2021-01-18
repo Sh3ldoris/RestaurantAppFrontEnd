@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 
+const TOKEN_KEY = 'AuthToken';
+const USERNAME_KEY = 'AuthUsername';
+const AUTHORITIES_KEY = 'AuthRole';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,11 +13,10 @@ export class TokenService {
   private roles: Array<string> = [];
   authorities: string;
   constructor(private router: Router,
-              private cookieService: CookiesService) { }
+              private cookieService: CookieService) { }
 
   signOut() {
     this.cookieService.deleteAll();
-    this.router.navigate(['/']);
   }
 
   public saveToken(token: string) {
@@ -30,40 +33,22 @@ export class TokenService {
     this.cookieService.set(USERNAME_KEY, username);
   }
 
-  public saveUserId(userId: number) {
-    this.cookieService.set(USER_ID, userId.toString());
-  }
-
   public getUsername(): string {
     return this.cookieService.get(USERNAME_KEY);
   }
 
-  public saveAuthorities(authorities: string[]) {
+  public saveAuthRole(role: string) {
     this.cookieService.delete(AUTHORITIES_KEY);
-    this.cookieService.set(AUTHORITIES_KEY, JSON.stringify(authorities));
+    this.cookieService.set(AUTHORITIES_KEY, role);
   }
 
-  public getAuthorities(): string[] {
-    this.roles = [];
-
+  public getAuthorities(): string {
     if (this.cookieService.get(TOKEN_KEY)) {
-      JSON.parse(this.cookieService.get(AUTHORITIES_KEY)).forEach(authority => {
-        this.roles.push(authority.authority);
-      });
+      return this.cookieService.get(AUTHORITIES_KEY);
     }
-
-    return this.roles;
   }
 
-  public getParsedAuthorities() {
-    if (this.getToken() && this.getUsername() !== '') {
-      this.getAuthorities().forEach(role => {
-        if ( role === 'ROLE_ADMIN') {
-          this.authorities = 'admin';
-        } else {
-          this.authorities = 'user';
-        }
-      });
-    }
+  public delete() {
+    this.cookieService.deleteAll();
   }
 }

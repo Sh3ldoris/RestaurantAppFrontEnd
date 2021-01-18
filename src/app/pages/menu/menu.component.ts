@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuService} from '../../Service/menu.service';
 import {Menu} from '../../model/menu';
+import {AuthService} from '../../Service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +13,7 @@ export class MenuComponent implements OnInit{
   menu: Menu;
   menuDate: Date = new Date();
   isLoading = true;
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService, private auts: AuthService) { }
 
   ngOnInit() {
     this.menuService.getCurrentMenu().subscribe(

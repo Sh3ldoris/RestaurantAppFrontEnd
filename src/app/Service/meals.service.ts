@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MainMeal} from '../model/main-meal';
 import {Soup} from '../model/soup';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -30,14 +31,14 @@ export class MealsService {
   }
 
   public saveSoup(soup: Soup) {
-    return this.httpService.post('api/secured/saveSoup', soup, this.httpOptions);
+    return this.httpService.post('api/secured/saveSoup', soup);
   }
 
   public deleteMainMeal(id: number) {
-    return this.httpService.delete('api/secured/deleteMainMeal/' + id, this.httpOptions);
+    return this.httpService.delete('api/secured/deleteMainMeal/' + id);
   }
 
   public saveMainMeal(meal: MainMeal) {
-    return this.httpService.post('api/secured/saveMainMeal', meal, this.httpOptions);
+    return this.httpService.post('api/secured/saveMainMeal', meal);
   }
 }
