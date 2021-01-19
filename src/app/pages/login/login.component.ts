@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     // tslint:disable-next-line:forin
     for (const i in this.form.controls) {
       this.form.controls[i].markAsDirty();
-      this.form.controls[i].updateValueAndValidity();
+      // this.form.controls[i].updateValueAndValidity();
     }
 
     this.isLoading = true;
@@ -55,9 +55,9 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['/admin/menu']);
     },
     (error: any) => {
-      console.error(error);
+      this.isLoginInformationRight = false;
+      this.isPasswordRight = false;
       this.isLoading = false;
-      window.location.reload();
     });
   }
 }

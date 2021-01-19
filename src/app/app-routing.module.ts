@@ -10,6 +10,7 @@ import {SoupsListComponent} from './pages/admin-section/soups-list/soups-list.co
 import {MainMealsListComponent} from './pages/admin-section/main-meals-list/main-meals-list.component';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthLoginhGuard} from './auth/auth-loginh.guard';
+import {NewMenuComponent} from './pages/admin-section/new-menu/new-menu.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'admin/menu', component: MenuAdminComponent, canActivate: [AuthGuard]},
   {path: 'admin/soups', component: SoupsListComponent, canActivate: [AuthGuard]},
   {path: 'admin/main-meals', component: MainMealsListComponent, canActivate: [AuthGuard]},
-  {path: '', redirectTo: '/menu', pathMatch: 'full'}
+  {path: 'admin/new-menu', component: NewMenuComponent, canActivate: [AuthGuard]},
+  {path: '', redirectTo: 'menu', pathMatch: 'full'}
 ];
 
 @NgModule({

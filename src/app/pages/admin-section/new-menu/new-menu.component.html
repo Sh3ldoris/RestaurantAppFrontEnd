@@ -1,0 +1,199 @@
+<div class="top-bar shadow d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <a class="icon" (click)="responsiveSideMenu.toggle()">
+          <i class="fa fa-bars"></i>
+        </a>
+        <app-admin-top-nav></app-admin-top-nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-body-holder">
+  <div class="side-wrap">
+    <app-admin-side-nav></app-admin-side-nav>
+  </div>
+
+  <mat-drawer-container id="content" [hasBackdrop]="true">
+    <mat-drawer-content>
+      <div class="cards-holder mt-3">
+
+        <div class="container">
+          <div class="row display-flex">
+
+            <div class="col-12 col-lg-6 p-0">
+
+              <div class="container p-0 pr-lg-2 pr-0 ">
+                <div class="container shadow rounded bg-white card pb-2">
+
+                  <div class="row info my-0">
+                    <div class="col-6 p-0">
+                      <h3>Akcia</h3>
+                    </div>
+                  </div>
+                  <span class="border-bottom"></span>
+                  <div class="row content" style="min-height: 5vh;">
+                    <div class="col-12 col-sm-6 p-0 d-flex justify-content-center">
+                      <button class="btn modal-btn cancel btn-secondary px-5 py-2" (click)="cancel()">Zahodiť</button>
+                    </div>
+                    <div class="col-12 col-sm-6 p-0 d-flex justify-content-center">
+                      <button [disabled]="myForm.invalid" class="btn modal-btn save px-5 py-2" (click)="submitNewMenu()">Potvrdiť</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-12 col-lg-6 p-0">
+
+              <div class="container p-0 pl-lg-2 pl-0 ">
+                <div class="container shadow rounded bg-white card">
+
+                  <div class="row info my-0">
+                    <div class="col-6 p-0">
+                      <h3>Dátum</h3>
+                    </div>
+                  </div>
+                  <span class="border-bottom"></span>
+                  <div class="row content d-flex justify-content-center" style="min-height: 5vh;">
+
+                      <form (ngSubmit)="submitNewMenu()" [formGroup]="myForm">
+                        <mat-form-field class="example-full-width" appearance="fill" color="accent">
+                          <mat-label >Vyberte si dátum</mat-label>
+                          <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="dateVal">
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker touchUi #picker color="accent"></mat-datepicker>
+                        </mat-form-field>
+                      </form>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container shadow rounded bg-white card" style="min-height: 70vh;">
+          <div class="row info">
+            <div class="col-12 p-0">
+              <h3>Nové menu</h3>
+            </div>
+          </div>
+          <span class="border-bottom mb-5"></span>
+
+          <div class="row justify-content-center meals-holder mb-4 mx-3">
+            <div class="col-12 col-lg-6">
+
+              <div class="row mb-4 d-flex justify-content-center">
+                <h2 class="mr-4  my-2">Polievky</h2><h1 class="meal-price  ml-2"><a (click)="openNewSoupsDialog()" class="new-meal"><i class="fa fa-plus-circle"></i></a></h1>
+              </div>
+
+              <div class="row justify-content-center align-items-center meals-holder mb-4 mx-3 text-center" style="min-height: 45vh;" *ngIf="soups.length === 0">
+                  <h3 style="font-size: 20px; color: #c4c4c4;">Nové menu nemá zatiaľ priradené žiadne polievky</h3>
+              </div>
+
+              <div class="row justify-content-center meals-holder mb-4 mx-3">
+                <div class="col-12 mb-3 d-flex align-items-stretch border meal-card rounded" *ngFor="let soup of soups; index as i">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12 col-xl-11 pt-3">
+                        <div class="row">
+                          <h1 class="meal-title mb-auto">{{soup.name}}</h1>
+                        </div>
+                        <div class="row">
+                          <h3 class="meal-price mt-4 mb-0" style="font-weight: 500">{{soup.price | number : '1.2-2'}}€</h3>
+                        </div>
+                      </div>
+                      <div class="col-2 col-xl-1 offset-10 offset-xl-0 d-flex align-items-center justify-content-center">
+                        <h2 class="meal-price mt-0 mb-0"><a (click)="removeSoup(soup)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-12 col-lg-6">
+
+              <div class="row mb-4 d-flex justify-content-center">
+                <h2 class="mr-3 my-2">Hlavné jedlá </h2><h1 class="meal-price ml-2"><a (click)="openNewMealDialog()" class="new-meal"><i class="fa fa-plus-circle"></i></a></h1>
+              </div>
+
+              <div class="row justify-content-center align-items-center meals-holder mb-4 mx-3 text-center" style="min-height: 45vh;" *ngIf="mainMeals.length === 0">
+                <h3 style="font-size: 20px; color: #c4c4c4;">Nové menu nemá zatiaľ priradené žiadne hlavné jedlá</h3>
+              </div>
+
+              <div class="row justify-content-center meals-holder mb-4 mx-3">
+                <div class="col-12 mb-3 d-flex align-items-stretch border meal-card rounded" *ngFor="let meal of mainMeals; index as i">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12 col-xl-11 pt-3">
+                        <div class="row">
+                          <h1 class="meal-title mb-auto">{{meal.name}}</h1>
+                        </div>
+                        <div class="row">
+                          <h3 class="meal-price mt-4 mb-0" style="font-weight: 500">{{meal.price | number : '1.2-2'}}
+                            €</h3>
+                        </div>
+                      </div>
+                      <div class="col-2 col-xl-1 offset-10 offset-xl-0 d-flex align-items-center justify-content-center">
+                        <h2 class="meal-price mt-0 mb-0"><a (click)="removeMainMeal(meal)" class="delete-meal"><i
+                          class="fa fa-trash-o"></i></a></h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!--<div class="row" style="min-height: 60vh;" *ngIf="isLoading==true">
+            <div class="col-12  d-flex justify-content-center align-items-center">
+              <app-loading></app-loading>
+            </div>
+          </div>-->
+
+          <!--<div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
+            <div class="col-12 mb-3 d-flex align-items-stretch border meal-card rounded" *ngFor="let soup of mainMeals; index as i">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-md-10 pt-3">
+                    <div class="row">
+                      <h1 class="meal-title mb-auto">{{soup.name}}</h1>
+                    </div>
+                    <div class="row">
+                      <h3 class="meal-price mt-4 mb-0" style="font-weight: 500">{{soup.price | number : '1.2-2'}}€</h3>
+                    </div>
+                  </div>
+                  <div class="col-2 offset-8 offset-md-0 col-md-1 d-flex align-items-center justify-content-center">
+                    <h2 class="meal-price mt-0 mb-0"><a (click)="openUpdateDialog(soup)" class="new-meal"><i class="fa fa-pencil"></i></a></h2>
+                  </div>
+                  <div class="col-2 col-md-1 d-flex align-items-center justify-content-center">
+                    <h2 class="meal-price mt-0 mb-0"><a (click)="removeMainMeal(soup)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>-->
+
+        </div>
+      </div>
+    </mat-drawer-content>
+
+    <mat-drawer #responsiveSideMenu class="responsive" mode="over" opened="false" position="end">
+      <app-admin-side-nav></app-admin-side-nav>
+    </mat-drawer>
+  </mat-drawer-container>
+
+
+</div>
+
+
+

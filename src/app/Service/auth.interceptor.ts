@@ -25,7 +25,8 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private handleAuthError(err: HttpErrorResponse): Observable<any> {
-    if (err.status === 401 || err.status === 403) {
+    if ((err.status === 401 || err.status === 403) && this.authService.isUserLoggedIn()) {
+      console.log('Hej no');
       this.tokenSerice.signOut();
       this.dialog.closeAll();
       this.router.navigate(['/']);

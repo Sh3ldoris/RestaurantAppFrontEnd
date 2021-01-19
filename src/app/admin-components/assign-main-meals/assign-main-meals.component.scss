@@ -1,0 +1,43 @@
+*{
+  min-width: 200px;
+}
+
+button:focus {
+  box-shadow: none;
+}
+
+.modal-btn {
+  font-weight: 400;
+  margin: 10px;
+}
+
+.modal-btn:active {
+  transform: translateY(3px);
+}
+
+.save {
+  background-color: #f8c02e;;
+  color: white;
+}
+
+.save:hover {
+  background-color: var(--main-color);
+}
+
+.cancel {
+  background-color: #7b7c83;
+}
+
+.cancel:hover {
+  background-color: #6c757d;
+}
+
+@media (max-width: 767.98px) {
+
+}
+
+@media screen and (max-width: 376px) {
+  mat-grid-tile {
+
+  }
+}

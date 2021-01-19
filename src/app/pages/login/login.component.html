@@ -22,8 +22,7 @@
         <div *ngIf="isLoading!=true">Prihlásiť</div>
       </button>
 
-      <div *ngIf="!isPasswordRight"><p class="text-danger mt-3">Ľutujeme, zadané heslo je nesprávne. Dôkladne ho skontrolujte.</p></div>
-      <div *ngIf="!isLoginInformationRight"><p class="text-danger mt-3">Používateľ, ktorého ste zadali, nepatrí k účtu. Skontrolujte svoje používateľské meno a skúste znova.</p></div>
+      <div *ngIf="!isLoginInformationRight"><p class="text-danger mt-3">Ľutujeme, prihlasovacie údaje, ktorého ste zadali sú neplatné. Skontrolujte svoje používateľské meno alebo heslo a skúste znova.</p></div>
       <p class="mt-5 mb-3 text-muted">© 2020 Lany</p>
     </form>
   </div>

@@ -1,0 +1,24 @@
+
+<app-loading *ngIf="isLoadingMenu == true || isLoadingMeals == true"></app-loading>
+
+<div class="" *ngIf="isLoadingMenu != true && isLoadingMeals != true">
+  <h2 mat-dialog-title>Zoznam hlavných jedál</h2>
+  <p>Vyberte jedlá, ktoré majú byť súčasťou aktuálneho menu a kliknite Uložiť!</p>
+  <mat-dialog-content class="mat-typography">
+    <mat-selection-list #mealHolder (selectionChange)="onGroupsChange(mealHolder.selectedOptions.selected)">
+      <mat-grid-list cols="1" [rowHeight]="rowHeight">
+        <mat-grid-tile *ngFor="let meal of meals">
+          <mat-list-option class="mt-4 mb-4" color="accent" [value]="meal" [selected]="isSelected(meal.id)">
+            {{meal.name}} ({{meal.price | number : '1.2-2'}}€)
+          </mat-list-option>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-selection-list>
+  </mat-dialog-content>
+
+  <div mat-dialog-actions align="end">
+    <button class="mr-3 btn btn modal-btn cancel btn-secondary" mat-button [mat-dialog-close]="false">Zrušiť</button>
+    <button class="btn btn modal-btn save" mat-button [mat-dialog-close]="true" (click)="saveMenu()" >Uložiť</button>
+  </div>
+</div>
+

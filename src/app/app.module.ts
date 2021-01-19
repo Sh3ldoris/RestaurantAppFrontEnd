@@ -37,6 +37,13 @@ import {AuthInterceptor} from './Service/auth.interceptor';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthService} from './Service/auth.service';
+import { NewMenuComponent } from './pages/admin-section/new-menu/new-menu.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AssignSoupsComponent } from './admin-components/assign-soups/assign-soups.component';
+import { AssignMainMealsComponent } from './admin-components/assign-main-meals/assign-main-meals.component';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +68,10 @@ import {AuthService} from './Service/auth.service';
       UpdateSoupDialogComponent,
       NewSoupDialogComponent,
       NewMainMealDialogComponent,
-      UpdateMainMealDialogComponent
+      UpdateMainMealDialogComponent,
+      NewMenuComponent,
+      AssignSoupsComponent,
+      AssignMainMealsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +84,10 @@ import {AuthService} from './Service/auth.service';
     MatDialogModule,
     MatListModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, AuthService, AuthGuard, CookieService],
   bootstrap: [AppComponent]
