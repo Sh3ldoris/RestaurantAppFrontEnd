@@ -43,6 +43,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AssignSoupsComponent } from './admin-components/assign-soups/assign-soups.component';
 import { AssignMainMealsComponent } from './admin-components/assign-main-meals/assign-main-meals.component';
+import { MenuListComponent } from './pages/admin-section/menu-list/menu-list.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { AssignMainMealsComponent } from './admin-components/assign-main-meals/a
       UpdateMainMealDialogComponent,
       NewMenuComponent,
       AssignSoupsComponent,
-      AssignMainMealsComponent
+      AssignMainMealsComponent,
+      MenuListComponent
   ],
   imports: [
     BrowserModule,

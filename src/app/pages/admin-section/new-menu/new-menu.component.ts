@@ -83,6 +83,11 @@ export class NewMenuComponent implements OnInit {
     this.menuService.saveMenu(menu).subscribe(
       data => {
         console.log(data);
+        this.soups = [];
+        this.mainMeals = [];
+        this.myForm = this.fb.group({
+          dateVal: [null, [Validators.required]]
+        });
       }
     );
   }

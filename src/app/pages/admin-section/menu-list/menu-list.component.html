@@ -1,0 +1,69 @@
+<div class="top-bar shadow d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <a class="icon" (click)="responsiveSideMenu.toggle()">
+          <i class="fa fa-bars"></i>
+        </a>
+        <app-admin-top-nav></app-admin-top-nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-body-holder">
+  <div class="side-wrap">
+    <app-admin-side-nav></app-admin-side-nav>
+  </div>
+
+  <mat-drawer-container id="content" [hasBackdrop]="true">
+    <mat-drawer-content>
+      <div class="cards-holder mt-3">
+
+        <div class="container shadow rounded bg-white card">
+          <div class="row info">
+            <div class="col-12 p-0">
+              <h3>Zoznam menu</h3>
+            </div>
+          </div>
+          <span class="border-bottom mb-5"></span>
+
+          <div class="row" style="min-height: 60vh;" *ngIf="isLoading==true">
+            <div class="col-12  d-flex justify-content-center align-items-center">
+              <app-loading></app-loading>
+            </div>
+          </div>
+
+          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
+            <div class="col-12 mb-3 d-flex align-items-stretch border meal-card rounded" [style.background-color]="isMenuOld(menu.menuDate) ? '#f1f1f1' : ''" *ngFor="let menu of menus; index as i">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-md-11 pt-3">
+                    <div class="row">
+                      <h1 class="meal-title mb-auto" style="font-weight: 500;">{{getFormatedDate(menu.menuDate)}}</h1>
+                    </div>
+                    <div class="row">
+                      <h3 class="meal-price mt-4 mb-0">Počet polievok: {{menu.soups.length}}, Počet hlavných jedál: {{menu.mainMeals.length}}</h3>
+                    </div>
+                  </div>
+                  <div class="col-2 offset-11 offset-md-0 col-md-1 d-flex align-items-center justify-content-center">
+                    <h2 class="meal-price mt-0 mb-0"><a (click)="removeMainMeal(menu)" class="delete-meal"><i class="fa fa-trash-o"></i></a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </mat-drawer-content>
+
+    <mat-drawer #responsiveSideMenu class="responsive" mode="over" opened="false" position="end">
+      <app-admin-side-nav></app-admin-side-nav>
+    </mat-drawer>
+  </mat-drawer-container>
+
+
+</div>
+
+

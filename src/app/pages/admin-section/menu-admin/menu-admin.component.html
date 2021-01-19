@@ -32,10 +32,10 @@
             <div class="col-12  d-flex justify-content-center align-items-center" *ngIf="isLoading==true">
               <app-loading></app-loading>
             </div>
-            <div class="col-12 col-md-6 p-0 mb-3 mb-md-0 d-flex justify-content-center" *ngIf="isLoading!=true">
+            <div class="col-12 col-md-6 p-0 mb-3 mb-md-0 d-flex justify-content-center" *ngIf="isLoading!=true && (menu.menuDate !=null)">
               <h1>{{menuDate.getDate()}}.{{menuDate.getMonth() + 1}}.{{menuDate.getFullYear()}}</h1>
             </div>
-            <div class="col-12 col-md-6 p-0 d-flex justify-content-center" *ngIf="isLoading!=true">
+            <div class="col-12 col-md-6 p-0 d-flex justify-content-center" *ngIf="isLoading!=true && (menu.menuDate !=null)">
               <h1>{{getNameOfADat()}}</h1>
             </div>
           </div>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <span class="border-bottom"></span>
-          <div class="row mb-4 content" *ngIf="isLoading!=true">
+          <div class="row mb-4 content" *ngIf="isLoading!=true && (menu.menuDate !=null)">
             <div class="col-12 p-0 mb-3 mb-md-0 d-flex justify-content-center">
               <h2>Polievky</h2>
             </div>
@@ -61,7 +61,13 @@
             </div>
           </div>
 
-          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
+          <div class="row justify-content-center meals-holder mb-4 mx-3" style="min-height: 60vh;" *ngIf="isLoading!=true && (menu.menuDate == null)">
+            <div class="col-12  d-flex justify-content-center align-items-center">
+              <h1>Na dnes nie je priradené žiadne menu</h1>
+            </div>
+          </div>
+
+          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true && (menu.menuDate !=null)">
             <div class="col-auto mb-3 d-flex align-items-stretch" *ngFor="let soup of menu.soups; index as i">
               <div class="card border meal-card">
                 <div class="card-body d-flex flex-column">
@@ -82,13 +88,13 @@
             </div>
           </div>
 
-          <div class="row mb-4 content" *ngIf="isLoading!=true">
+          <div class="row mb-4 content" *ngIf="isLoading!=true && (menu.menuDate !=null)">
             <div class="col-12 p-0 mb-3 mb-md-0 d-flex justify-content-center">
               <h2>Hlavné jedlá</h2>
             </div>
           </div>
 
-          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true">
+          <div class="row justify-content-center meals-holder mb-4 mx-3" *ngIf="isLoading!=true && (menu.menuDate !=null)">
             <div class="col-auto mb-3 d-flex align-items-stretch" *ngFor="let meal of menu.mainMeals; index as i">
               <div class="card border meal-card">
                 <div class="card-body d-flex flex-column">

@@ -24,7 +24,15 @@ export class MenuService {
       return this.httpService.get<Menu>('api/public/getCurrentMenu');
   }
 
+  public getAllMenus() {
+    return this.httpService.get<Menu[]>('api/secured/getAllMenus');
+  }
+
   public saveMenu(menu: Menu) {
     return this.httpService.post<Menu>('api/secured/saveMenu', menu, this.httpOptions);
+  }
+
+  public deleteMenu(id: number) {
+    return this.httpService.delete('api/secured/deleteMenu/' + id, this.httpOptions);
   }
 }

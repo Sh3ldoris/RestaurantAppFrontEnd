@@ -15,8 +15,6 @@ import {NewMainMealDialogComponent} from '../../../admin-components/new-main-mea
 })
 export class MainMealsListComponent implements OnInit {
 
-
-
   mainMeals: MainMeal[] = [];
   isLoading = true;
   constructor(private mealService: MealsService,

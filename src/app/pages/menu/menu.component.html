@@ -13,7 +13,7 @@
         Obedové menu
       </h2>
 
-      <h2 class="menu-date mb-3" *ngIf="isLoading!=true">
+      <h2 class="menu-date mb-3" *ngIf="isLoading!=true && (menuDate.getFullYear() !== 1970) ">
         {{menuDate.getDate()}}.{{menuDate.getMonth() + 1}}.{{menuDate.getFullYear()}}
       </h2>
 
