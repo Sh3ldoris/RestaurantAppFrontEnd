@@ -6,6 +6,7 @@ import {AddSoupsDialogContentComponent} from '../../../admin-components/add-soup
 import {Soup} from '../../../model/soup';
 import {MainMeal} from '../../../model/main-meal';
 import {AddMainMealsDialogComponent} from "../../../admin-components/add-main-meals-dialog/add-main-meals-dialog.component";
+import {NotificationsService} from '../../../Service/notifications.service';
 
 @Component({
   selector: 'app-menu-admin',
@@ -21,7 +22,8 @@ export class MenuAdminComponent implements OnInit {
   days = ['Nedeľa', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota'];
   constructor(
     private menuService: MenuService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private notificateService: NotificationsService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class MenuAdminComponent implements OnInit {
       error => {
         console.error(error);
         this.isLoading = false;
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
       });
   }
 
@@ -49,6 +52,7 @@ export class MenuAdminComponent implements OnInit {
         if (result === true) {
           this.isLoading = true;
           this.loadData();
+          this.notificateService.notificate('Jedlo bolo úspešne pridané!', 'Ok');
         }
       });
   }
@@ -60,6 +64,7 @@ export class MenuAdminComponent implements OnInit {
         if (result === true) {
           this.isLoading = true;
           this.loadData();
+          this.notificateService.notificate('Jedlo bolo úspešne pridané!', 'Ok');
         }
       }
     );
@@ -75,8 +80,10 @@ export class MenuAdminComponent implements OnInit {
       data => {
         console.log(data);
         this.loadData();
-      }
-    );
+        this.notificateService.notificate('Jedlo bolo úspešne odstránené!', 'Ok');
+      }, error => {
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
+      });
   }
 
   removeMainMeal(meal: MainMeal) {
@@ -89,8 +96,10 @@ export class MenuAdminComponent implements OnInit {
       data => {
         console.log(data);
         this.loadData();
-      }
-    );
+        this.notificateService.notificate('Jedlo bolo úspešne odstránené!', 'Ok');
+      }, error => {
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
+      });
   }
 
   getNameOfADat(): string {

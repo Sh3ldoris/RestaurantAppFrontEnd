@@ -4,6 +4,7 @@ import {Soup} from '../../../model/soup';
 import {MatDialog} from '@angular/material/dialog';
 import {UpdateSoupDialogComponent} from '../../../admin-components/update-soup-dialog/update-soup-dialog.component';
 import {NewSoupDialogComponent} from '../../../admin-components/new-soup-dialog/new-soup-dialog.component';
+import {NotificationsService} from '../../../Service/notifications.service';
 
 @Component({
   selector: 'app-soups-list',
@@ -15,7 +16,8 @@ export class SoupsListComponent implements OnInit {
   soups: Soup[] = [];
   isLoading = true;
   constructor(private mealService: MealsService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private notificateService: NotificationsService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -30,6 +32,7 @@ export class SoupsListComponent implements OnInit {
       error => {
         console.error(error);
         this.isLoading = false;
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
       });
   }
 
@@ -40,6 +43,7 @@ export class SoupsListComponent implements OnInit {
         if (result === true) {
           this.isLoading = true;
           this.loadData();
+          this.notificateService.notificate('Jedlo bolo úspešne upravené!', 'Ok');
         }
       });
   }
@@ -51,6 +55,7 @@ export class SoupsListComponent implements OnInit {
         if (result === true) {
           this.isLoading = true;
           this.loadData();
+          this.notificateService.notificate('Jedlo bolo úspešne pridané!', 'Ok');
         }
       });
   }
@@ -61,10 +66,12 @@ export class SoupsListComponent implements OnInit {
       data => {
         console.log(data);
         this.loadData();
+        this.notificateService.notificate('Jedlo bolo úspešne odstránené!', 'Ok');
       },
       error => {
         console.error(error);
         this.isLoading = false;
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
       }
     );
   }

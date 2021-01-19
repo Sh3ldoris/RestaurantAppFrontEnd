@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {MainMeal} from '../../../model/main-meal';
-import {MealsService} from '../../../Service/meals.service';
 import {MatDialog} from '@angular/material/dialog';
 import {Soup} from '../../../model/soup';
-import {UpdateMainMealDialogComponent} from '../../../admin-components/update-main-meal-dialog/update-main-meal-dialog.component';
-import {NewMainMealDialogComponent} from '../../../admin-components/new-main-meal-dialog/new-main-meal-dialog.component';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MenuService} from '../../../Service/menu.service';
 import {AssignMainMealsComponent} from '../../../admin-components/assign-main-meals/assign-main-meals.component';
 import {AssignSoupsComponent} from '../../../admin-components/assign-soups/assign-soups.component';
 import {AssignMealsService} from '../../../Service/assign-meals.service';
+import {NotificationsService} from '../../../Service/notifications.service';
 
 @Component({
   selector: 'app-new-menu',
@@ -28,7 +26,8 @@ export class NewMenuComponent implements OnInit {
   constructor(private menuService: MenuService,
               private dialog: MatDialog,
               private fb: FormBuilder,
-              private assignMeals: AssignMealsService) { }
+              private assignMeals: AssignMealsService,
+              private notificateService: NotificationsService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -82,14 +81,15 @@ export class NewMenuComponent implements OnInit {
     };
     this.menuService.saveMenu(menu).subscribe(
       data => {
-        console.log(data);
+        this.notificateService.notificate('Menu bolo úspešne pridané!', 'Ok');
         this.soups = [];
         this.mainMeals = [];
         this.myForm = this.fb.group({
           dateVal: [null, [Validators.required]]
         });
-      }
-    );
+      }, error => {
+        this.notificateService.notificate('Menu sa nepodarilo uložiť!', 'Ok');
+      });
   }
 
   cancel() {

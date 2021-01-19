@@ -7,6 +7,7 @@ import {UpdateMainMealDialogComponent} from '../../../admin-components/update-ma
 import {NewMainMealDialogComponent} from '../../../admin-components/new-main-meal-dialog/new-main-meal-dialog.component';
 import {MenuService} from '../../../Service/menu.service';
 import {Menu} from '../../../model/menu';
+import {NotificationsService} from '../../../Service/notifications.service';
 
 @Component({
   selector: 'app-menu-list',
@@ -17,7 +18,8 @@ export class MenuListComponent implements OnInit {
 
   menus: Menu[] = [];
   isLoading = true;
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService,
+              private notificateService: NotificationsService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -32,20 +34,23 @@ export class MenuListComponent implements OnInit {
       error => {
         console.error(error);
         this.isLoading = false;
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
       });
   }
 
 
-  removeMainMeal(meal: Menu) {
+  removeMenu(meal: Menu) {
     this.isLoading = true;
     this.menuService.deleteMenu(meal.id).subscribe(
       data => {
         console.log(data);
         this.loadData();
+        this.notificateService.notificate('Menu bolo úspešne odstránené!', 'Ok');
       },
       error => {
         console.error(error);
         this.isLoading = false;
+        this.notificateService.notificate('Niečo je zle!', 'Ok');
       }
     );
   }
